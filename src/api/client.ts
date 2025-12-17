@@ -20,4 +20,4 @@ apiClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   return config;
 });
 
-export default apiClient;
+export default apiClient; 
