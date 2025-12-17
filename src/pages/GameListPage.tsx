@@ -196,12 +196,15 @@ export default function GameListPage() {
                         )}
                       </td>
                         <td>
-                         {typeof game.avg_rating === "number" && game.avg_rating > 0 ? (
-                         <span className="fw-semibold">{game.avg_rating.toFixed(1)}/10</span>
-                          ) : (
+                        {typeof game.avg_rating === "number" && game.avg_rating > 0 ? (
+                        <>
+                        <span className="me-1">{game.avg_rating.toFixed(1)}/10</span>
+                        <span className="text-warning">{renderStars(game.avg_rating)}</span>
+                        </>
+                        ) : (
                             <span className="text-muted">No reviews</span>
-                          )}
-                        </td> 
+                        )}
+                        </td>
 
                       <td className="text-end">
                         <div className="d-flex justify-content-end gap-2">
