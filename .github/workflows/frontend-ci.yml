@@ -21,12 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: game-library-frontend
 
       - name: Run frontend lint
         run: npm run lint
-        working-directory: game-library-frontend
 
       - name: Run frontend tests
         run: npm run test
-        working-directory: game-library-frontend
