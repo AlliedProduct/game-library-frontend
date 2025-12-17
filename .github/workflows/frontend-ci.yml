@@ -24,7 +24,7 @@ jobs:
         run: npm ci
         working-directory: game-library-frontend
 
-              - name: Run frontend lint
+      - name: Run frontend lint
         run: npm run lint
         working-directory: game-library-frontend
 
