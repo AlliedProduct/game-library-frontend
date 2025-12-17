@@ -8,6 +8,7 @@ export interface Game {
   status: string;
   rating?: number;
   notes?: string;
+  avg_rating?: number | null;
   created_at?: string;
   updated_at?: string;
 }

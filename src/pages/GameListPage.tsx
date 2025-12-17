@@ -161,7 +161,8 @@ export default function GameListPage() {
                     <th>Platform</th>
                     <th>Genre</th>
                     <th>Status</th>
-                    <th>Rating</th>
+                    <th>My Rating</th>
+                    <th>Avg Rating</th>
                     <th style={{ width: "140px" }} className="text-end">
                       Actions
                     </th>
@@ -194,6 +195,14 @@ export default function GameListPage() {
                           <span className="text-muted">Not rated</span>
                         )}
                       </td>
+                        <td>
+                         {typeof game.avg_rating === "number" && game.avg_rating > 0 ? (
+                         <span className="fw-semibold">{game.avg_rating.toFixed(1)}/10</span>
+                          ) : (
+                            <span className="text-muted">No reviews</span>
+                          )}
+                        </td> 
+
                       <td className="text-end">
                         <div className="d-flex justify-content-end gap-2">
                           <Button

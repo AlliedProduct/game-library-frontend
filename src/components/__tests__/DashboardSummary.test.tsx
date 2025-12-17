@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import DashboardSummary from "../DashboardSummary";
 import type { Game } from "../../api/games";
 
@@ -23,17 +23,27 @@ test("shows totals and completion percentage", () => {
 
   render(<DashboardSummary games={games} />);
 
-  // total games
-  expect(screen.getByText("Total Games")).toBeInTheDocument();
-  expect(screen.getByText("3")).toBeInTheDocument();
+  // total games card
+  const totalLabel = screen.getByText("Total Games");
+  const totalCard = totalLabel.closest(".card") as HTMLElement;
+  expect(totalCard).toBeTruthy();
+  expect(within(totalCard).getByText("3")).toBeInTheDocument();
 
-  // completed count
-  expect(screen.getByText("Completed")).toBeInTheDocument();
-  expect(screen.getByText("1")).toBeInTheDocument();
+  // playing card
+  const playingLabel = screen.getByText("Playing");
+  const playingCard = playingLabel.closest(".card") as HTMLElement;
+  expect(playingCard).toBeTruthy();
+  expect(within(playingCard).getByText("1")).toBeInTheDocument();
+
+  // completed card
+  const completedLabel = screen.getByText("Completed");
+  const completedCard = completedLabel.closest(".card") as HTMLElement;
+  expect(completedCard).toBeTruthy();
+  expect(within(completedCard).getByText("1")).toBeInTheDocument();
 
   // completion percent
   expect(screen.getByText("33%")).toBeInTheDocument();
 
-  // average rating should exist
+  // average rating
   expect(screen.getByText("7/10")).toBeInTheDocument();
 });
